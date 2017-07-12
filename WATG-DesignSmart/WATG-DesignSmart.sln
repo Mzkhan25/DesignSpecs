@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WATG-DesignSmartPortal.Web", "WATG-DesignSmartPortal.Web\WATG-DesignSmartPortal.Web.csproj", "{2DC39D86-8546-4678-9530-7663A84F4E4D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{A490F3EC-EBE4-4D7C-A147-1A9ADF40BBA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WATG-DesignSmartPortal.Contracts", "WATG-DesignSmartPortal.Contracts\WATG-DesignSmartPortal.Contracts.csproj", "{460EA1A2-6191-48A7-A161-84ED1C3A73BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WATG-DesignSmartPortal.Data", "WATG-DesignSmartPortal.Data\WATG-DesignSmartPortal.Data.csproj", "{6A391E9E-94FC-484B-8A48-D0E95A3678D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WATG-DesignSmartPortal.Model", "WATG-DesignSmartPortal.Model\WATG-DesignSmartPortal.Model.csproj", "{3DB5CA04-C6D6-4054-9DB7-F6A23C439081}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2DC39D86-8546-4678-9530-7663A84F4E4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DC39D86-8546-4678-9530-7663A84F4E4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DC39D86-8546-4678-9530-7663A84F4E4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DC39D86-8546-4678-9530-7663A84F4E4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{460EA1A2-6191-48A7-A161-84ED1C3A73BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{460EA1A2-6191-48A7-A161-84ED1C3A73BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{460EA1A2-6191-48A7-A161-84ED1C3A73BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{460EA1A2-6191-48A7-A161-84ED1C3A73BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A391E9E-94FC-484B-8A48-D0E95A3678D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A391E9E-94FC-484B-8A48-D0E95A3678D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A391E9E-94FC-484B-8A48-D0E95A3678D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A391E9E-94FC-484B-8A48-D0E95A3678D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DB5CA04-C6D6-4054-9DB7-F6A23C439081}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DB5CA04-C6D6-4054-9DB7-F6A23C439081}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DB5CA04-C6D6-4054-9DB7-F6A23C439081}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DB5CA04-C6D6-4054-9DB7-F6A23C439081}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{460EA1A2-6191-48A7-A161-84ED1C3A73BE} = {A490F3EC-EBE4-4D7C-A147-1A9ADF40BBA8}
+		{6A391E9E-94FC-484B-8A48-D0E95A3678D8} = {A490F3EC-EBE4-4D7C-A147-1A9ADF40BBA8}
+		{3DB5CA04-C6D6-4054-9DB7-F6A23C439081} = {A490F3EC-EBE4-4D7C-A147-1A9ADF40BBA8}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,85 @@
+﻿<div id="loader-wrapper" ng-show="busyGettingData">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+
+<div ng-show="!busyGettingData">
+    <header>
+        <nav class="top-nav">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a ui-sref="Category">
+
+                        <img class="nav-logo" src="https://watgdevops.blob.core.windows.net/watgdesignawards/logo-small.svg"/>
+                    </a>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse">
+                        <i class="material-icons">menu</i>
+                    </a>
+                    <ul class="right hide-on-med-and-down">
+
+                        <a id="logout" title="Sign Out"
+                           class="btn btn-primary btn-xs" data-title="Sign Out"
+                           ng-click="logOut()">
+                            Sign Out
+                        </a>
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo">
+                        <li>
+                            <div class="userView">
+                                <div class="background" style="background-color: #AF2125"></div>
+                                <a ui-sref="Category">
+                                    <img class="side-logo" src="https://watgdevops.blob.core.windows.net/watgdesignawards/logo-landing.svg">
+                                </a>
+                            </div>
+                        </li>
+                        <a id="logout" title="Sign Out"
+                           class="btn btn-primary btn-xs" data-title="Sign Out"
+                           ng-click="logOut()">
+                            Sign Out
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="parallax-container darken valign-wrapper">
+
+            <div class="parallax">
+                <img ng-src="data:image/JPEG;base64,{{project.DisplayImage}}" style="background-color: white; display: block !important; transform: translate3d(-50%, 609px, 0px);">
+            </div>
+
+        </div>
+
+        <div class="section white">
+            <div class="row container flow-text grey-text text-darken-1">
+                <p><b>Title: </b> &emsp; {{project.Title}}
+                </p>
+                <p><b>Office: </b>&emsp;{{project.Office}}
+                </p>
+
+            </div>
+            <br/>
+            <div class="row container flow-text grey-text text-darken-1">
+                <p><b>Description: </b> &emsp;{{project.Description}}
+                </p>
+            </div>
+
+            <div class="row container flow-text grey-text text-darken-1">
+                <a href class="watg-red-text" ng-click="getProject()">View PDF</a>
+            </div>
+        </div>
+    </main>
+    <footer style="height: 50%">
+
+        <img class="watg-landing" src="https://watgdevops.blob.core.windows.net/watgdesignawards/watg-white.svg"/>
+    </footer>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#sidenav-overlay').hide();
+        $(".button-collapse").sideNav();
+        $('.parallax').parallax();
+    });
+</script>

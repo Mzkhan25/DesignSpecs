@@ -1,0 +1,57 @@
+﻿.align-label-right {
+    text-align: right;
+}
+
+.align-img-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.align-button-center {
+    text-align: center;
+}
+
+.row-space {
+    margin-bottom: 10px;
+}
+
+.login-block {
+    padding: 250px 550px;
+    text-align: center;
+}
+
+.error-msg {
+    color: red;
+}
+
+.center-align {
+    max-width: 500px;
+    float: none;
+    width: 100%;
+    margin: 200px auto 0 auto;
+    border: 2px solid #ccc;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.project-container {
+    padding: 0px 100px;
+}
+
+.bottom-footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #EDECEC;
+    margin: 0 auto;
+}
+
+div.ag-cell-no-focus .ag-cell .ag-cell-not-inline-editing .ag-cell-value .ng-scope {
+    text-align: center;   
+}
+
+.fullheight {
+    min-height:730px;
+}
+
+.main-class .ag-cell {text-align:center;}

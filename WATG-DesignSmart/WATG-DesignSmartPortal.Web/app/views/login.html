@@ -1,0 +1,39 @@
+﻿<div id="loader-wrapper" ng-show="busyGettingData">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+
+
+<div ng-show="!busyGettingData" id="landing">
+    <div class="center-align">
+        <div class="row row-space">
+            <div class="col-md-12">
+                <img class="align-img-center" src="../../css/images/design-smart-logo.png"/>
+            </div>
+        </div>
+        <form>
+            <div class="row row-space">
+                <div class="form-group">
+                <label>Account Name:</label>
+                    <input class="form-control"ng-model="userAccountName" type="text" required>
+                </div>
+            </div>
+            <div class="row row-space">
+            <div class="form-group">
+                <label>Password:    </label>
+                <input class="form-control" ng-model="userPassword" type="password" required>
+                <span ng-if="result===false" class="error-msg">{{invalidUserMsg}}</span>
+                </div>
+            </div>
+            <div class="row row-space">
+            <div class="col-md-12 align-button-center">
+                <input ng-click="login()" type="submit" class="btn btn-success" value="Continue">
+             </div>
+            </div>
+        </form>
+    </div>
+    <footer style="height: 50%">
+
+    </footer>
+</div>
