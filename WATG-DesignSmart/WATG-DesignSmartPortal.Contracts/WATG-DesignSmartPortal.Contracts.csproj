@@ -84,10 +84,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IDesignAwardsContext.cs" />
-    <Compile Include="IRepository\ICategoryRepository.cs" />
+    <Compile Include="IDesignSmartContext.cs" />
     <Compile Include="IRepository\IProjectRepository.cs" />
-    <Compile Include="IRepository\IResultRepository.cs" />
     <Compile Include="IRepository\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

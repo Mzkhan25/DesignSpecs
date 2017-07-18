@@ -4,21 +4,21 @@ using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Web;
-using WATG_DesignAwardsPortal.Contracts;
-using WATG_DesignAwardsPortal.Contracts.IRepository;
-using WATG_DesignAwardsPortal.Model.Classes;
+using WATG_DesignSmartPortal.Contracts;
+using WATG_DesignSmartPortal.Contracts.IRepository;
+using WATG_DesignSmartPortal.Model.Classes;
 #endregion
 
-namespace WATG_DesignAwardsPortal.Data.Repository
+namespace WATG_DesignSmartPortal.Data.Repository
 {
     public class ProjectRepository : IProjectRepository
     {
-        private readonly IDesignAwardsContext _db;
+        private readonly IDesignSmartContext _db;
         public ProjectRepository()
         {
-            _db = new DesignAwardsContext();
+            _db = new DesignSmartContext();
         }
-        public ProjectRepository(DesignAwardsContext db)
+        public ProjectRepository(DesignSmartContext db)
         {
             _db = db;
         }
@@ -26,7 +26,7 @@ namespace WATG_DesignAwardsPortal.Data.Repository
         {
             return _db.Projects.Where(p => p.IsDeleted == false);
         }
-        public bool Save(Project project, HttpPostedFileBase image, HttpPostedFileBase document, string userName)
+        public bool Save(Project project, string userName)
         {
             var result = true;
             try
@@ -48,13 +48,8 @@ namespace WATG_DesignAwardsPortal.Data.Repository
                     isNew = true;
                 }
                 var target = new MemoryStream();
-                image.InputStream.CopyTo(target);
-                dbItem.DisplayImage = target.ToArray();
-                dbItem.PdfPath = project.PdfPath;
-                dbItem.Title = project.Title;
-                dbItem.CategoryId = project.CategoryId;
-                dbItem.Office = project.Office;
-                dbItem.Description = project.Description;
+                //image.InputStream.CopyTo(target);
+                
                 dbItem.IsDeleted = false;
                 if (isNew)
                 {

@@ -2,21 +2,21 @@
 using System;
 using System.Data.Entity;
 using System.Linq;
-using WATG_DesignAwardsPortal.Contracts;
-using WATG_DesignAwardsPortal.Contracts.IRepository;
-using WATG_DesignAwardsPortal.Model.Classes;
+using WATG_DesignSmartPortal.Contracts;
+using WATG_DesignSmartPortal.Contracts.IRepository;
+using WATG_DesignSmartPortal.Model.Classes;
 #endregion
 
-namespace WATG_DesignAwardsPortal.Data.Repository
+namespace WATG_DesignSmartPortal.Data.Repository
 {
     public class UserRepository : IUserRepository
     {
-        private readonly IDesignAwardsContext _db;
+        private readonly IDesignSmartContext _db;
         public UserRepository()
         {
-            _db = new DesignAwardsContext();
+            _db = new DesignSmartContext();
         }
-        public UserRepository(DesignAwardsContext db)
+        public UserRepository(DesignSmartContext db)
         {
             _db = db;
         }
@@ -47,9 +47,7 @@ namespace WATG_DesignAwardsPortal.Data.Repository
                 }
                 dbItem.FirstName = item.FirstName;
                 dbItem.LastName = item.LastName;
-                dbItem.Email = item.Email;
-                dbItem.Password = item.Password;
-                dbItem.Role = item.Role;
+              
                 dbItem.IsDeleted = false;
                 if (isNew)
                 {

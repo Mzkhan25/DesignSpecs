@@ -56,6 +56,7 @@
         $interval,
         $filter,
         appService) {
+        
         $rootScope.pageTitle = "WATG| Design Awards";
         $rootScope.form = {};
         $rootScope.user = {};
@@ -84,6 +85,10 @@
             //localStorage.clear();
             localStorage.setItem("loggedInUsername","");
             $location.path("/login");
+        };
+
+        $rootScope.appConfig = {
+            toastrOptions: {}
         };
     }
 })();

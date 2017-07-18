@@ -96,45 +96,30 @@
                     <div class="form-group"><label>Difference</label> </div>
                 </div>
             </div>
-            
-            
-            <div class="form-group">
-                <!--<button ng-if="isAddFlow" class="btn btn-primary" ng-click="saveProject()">Save</button>-->
 
-                <div ng-if="isAddFlow">
-                    <input type="submit" ng-click="saveProject()" class="btn btn-primary" value="Save">
+            <input class="form-control input-sm" type="file" ngf-select ng-model="picFile" name="file"
+                   accept="image/*" ngf-max-size="5MB" required
+                   ngf-model-invalid="errorFile">
+
+            <a class="btn btn-primary btn-xs pull-right"
+               title="add"
+               ng-click="uploadPic(picFile)">
+                <i class="fa fa-plus"></i>&nbsp;Add
+            </a>
+         
+
+                <div class="form-group">
+                    <!--<button ng-if="isAddFlow" class="btn btn-primary" ng-click="saveProject()">Save</button>-->
+
+                    <div ng-if="isAddFlow">
+                        <input type="submit" ng-click="saveProject()" class="btn btn-primary" value="Save">
+                    </div>
+
+                    <a ng-if="!isAddFlow" ng-href="#/project" class="btn btn-primary">Back To Projects</a>
                 </div>
-
-                <a ng-if="!isAddFlow" ng-href="#/project" class="btn btn-primary">Back To Projects</a>
-            </div>
-        </form>
+</form>
         
-        Upload on form submit or button click
-        <form name="form">
-            Single Image with validations
-            <div class="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
-                 ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100" 
-                 ngf-resize="{width: 100, height: 100}">Select</div>
-            Multiple files
-            <div class="button" ngf-select ng-model="files" ngf-multiple="true">Select</div>
-            Drop files: <div ngf-drop ng-model="files" class="drop-box">Drop</div>
-            <button type="submit" ng-click="submit()">submit</button>
-        </form>
- 
-        Upload right away after file selection:
-        <div class="button" ngf-select="upload($file)">Upload on file select</div>
-        <div class="button" ngf-select="uploadFiles($files)" multiple="multiple">Upload on file select</div>
-        Drop File:
-        <div ngf-drop="uploadFiles($files)" class="drop-box"
-             ngf-drag-over-class="'dragover'" ngf-multiple="true" 
-             ngf-pattern="'image/*,application/pdf'">Drop Images or PDFs files here</div>
-        <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
- 
-        Image thumbnail: <img ngf-thumbnail="file || '/thumb.jpg'">
-        Audio preview: <audio controls ngf-src="file"></audio>
-        Video preview: <video controls ngf-src="file"></video>
-
-    </div>
+      
 
     
     <div ng-if="isDataSaved" class="alert alert-success" role="alert">Project added successfully, click <a ng-href="#/project">here</a> go back to project screen</div>

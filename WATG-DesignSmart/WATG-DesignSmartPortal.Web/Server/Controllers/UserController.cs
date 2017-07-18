@@ -1,12 +1,12 @@
 ﻿#region
 using System.Linq;
 using System.Web.Mvc;
-using WATG_DesignAwardsPortal.Contracts.IRepository;
-using WATG_DesignAwardsPortal.Data.Repository;
-using WATG_DesignAwardsPortal.Model.Classes;
+using WATG_DesignSmartPortal.Contracts.IRepository;
+using WATG_DesignSmartPortal.Data.Repository;
+using WATG_DesignSmartPortal.Model.Classes;
 #endregion
 
-namespace WATG_DesignAwardsPortal.Web.Server.Controllers
+namespace WATG_DesignSmartPortal.Web.Server.Controllers
 {
     public class UserController : Controller
     {

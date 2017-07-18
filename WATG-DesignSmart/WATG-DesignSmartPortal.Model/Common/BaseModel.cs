@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 #endregion
 
-namespace WATG_DesignAwardsPortal.Model.Common
+namespace WATG_DesignSmartPortal.Model.Common
 {
     public abstract class BaseModel
     {

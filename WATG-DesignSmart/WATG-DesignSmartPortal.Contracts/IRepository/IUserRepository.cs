@@ -1,9 +1,9 @@
 ﻿#region
 using System.Linq;
-using WATG_DesignAwardsPortal.Model.Classes;
+using WATG_DesignSmartPortal.Model.Classes;
 #endregion
 
-namespace WATG_DesignAwardsPortal.Contracts.IRepository
+namespace WATG_DesignSmartPortal.Contracts.IRepository
 {
     public interface IUserRepository
     {

@@ -6,7 +6,7 @@ using System.Security.Principal;
 using System.Web.Mvc;
 #endregion
 
-namespace WATG_DesignAwardsPortal.Web.Server.Controllers
+namespace WATG_DesignSmartPortal.Web.Server.Controllers
 {
     public class UtilController : Controller
     {

@@ -1,16 +1,14 @@
 ﻿#region
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using WATG_DesignAwardsPortal.Model.Classes;
+using WATG_DesignSmartPortal.Model.Classes;
 #endregion
 
-namespace WATG_DesignAwardsPortal.Contracts
+namespace WATG_DesignSmartPortal.Contracts
 {
-    public interface IDesignAwardsContext
+    public interface IDesignSmartContext
     {
-        DbSet<Category> Categories { get; set; }
         DbSet<Project> Projects { get; set; }
-        DbSet<Result> Results { get; set; }
         DbSet<User> Users { get; set; }
         int SaveChanges();
         DbEntityEntry Entry(object o);

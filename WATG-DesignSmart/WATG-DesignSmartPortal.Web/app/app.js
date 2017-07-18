@@ -1,5 +1,13 @@
 ﻿(function() {
     "use strict";
+    var defaultToastrOptions = {
+        progressBar: false,
+        preventDuplicates: true,
+        positionClass: "toast-bottom-right",
+        timeOut: 3000
+    };
+    toastr.options = defaultToastrOptions;
+
     var modules = [
         "ngRoute",
         "ngFileUpload",

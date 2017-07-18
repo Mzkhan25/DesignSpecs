@@ -32,13 +32,26 @@
                         return response.data;
                     });
             },
-            save: function(project, image, document) {
-                Upload.upload({
+            save: function(project) {
+               return Upload.upload({
                     url: "Project/Save",
-                    data: { project: project, image: image, document: document }
+                    data: { project: project }
                 }).then(function(resp) {
-                    $rootScope.projectUploaded();
+                   // $rootScope.projectUploaded();
+                    return resp;
                 });
+            },
+            uploadImage: function (file, currency) {
+                Upload.upload({
+                    url: "BenefitsImage/Save",
+                    data: { currency: currency, file: file }
+                }).then(function (resp) {
+                    $rootScope.log("Success", "Benefits Image saved successfully", "log", "toast");
+                    $rootScope.uploaded();
+                },
+                    function (resp) {
+                        $rootScope.log("Error", "Failed to save budget " + resp.status, "error", "toast");
+                    });
             }
         };
     }
