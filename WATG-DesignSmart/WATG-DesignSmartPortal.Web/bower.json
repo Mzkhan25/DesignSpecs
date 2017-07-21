@@ -16,7 +16,8 @@
     "ng-file-upload": "^12.2.13",
     "ag-grid": "^10.1.0",
     "toastr": "*",
-    "pdfmake": "^0.1.31"
+    "pdfmake": "^0.1.31",
+    "html2canvas": "^0.4.1"
   },
   "ignore": [
     "**/.*",

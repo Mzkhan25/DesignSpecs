@@ -55,3 +55,7 @@ div.ag-cell-no-focus .ag-cell .ag-cell-not-inline-editing .ag-cell-value .ng-sco
 }
 
 .main-class .ag-cell {text-align:center;}
+
+.div-spacing { 
+    margin-top:100px;
+}

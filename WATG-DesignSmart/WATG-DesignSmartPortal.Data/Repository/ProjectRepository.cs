@@ -50,7 +50,7 @@ namespace WATG_DesignSmartPortal.Data.Repository
                     dbItem.AddedBy = userName;
                     isNew = true;
                 }
-              
+
                 Mapper.Initialize(c =>
                 {
                     c.CreateMap<Project, Project>();
@@ -58,7 +58,7 @@ namespace WATG_DesignSmartPortal.Data.Repository
 
                 dbItem = Mapper.Map<Project, Project>(project);
 
-                if(image != null)
+                if (image != null)
                 {
                     var target = new MemoryStream();
                     image.InputStream.CopyTo(target);
@@ -69,6 +69,7 @@ namespace WATG_DesignSmartPortal.Data.Repository
                 if (isNew)
                 {
                     _db.Entry(dbItem).State = EntityState.Added;
+                    dbItem.DateAdded = DateTime.UtcNow;
                     _db.Projects.Add(dbItem);
                 }
                 _db.SaveChanges();

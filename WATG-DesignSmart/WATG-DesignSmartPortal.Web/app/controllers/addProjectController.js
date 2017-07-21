@@ -96,18 +96,11 @@
                 });
         }
 
-        //html2canvas(document.getElementById('export-this'), {
-        //    onrendered: function (canvas) {
-        //        var data = canvas.toDataURL();
-        //        var docDefinition = {
-        //            content: [{
-        //                image: data,
-        //                width: 500,
-        //            }]
-        //        };
-        //        pdfMake.createPdf(docDefinition).download("Score_Details.pdf");
-        //    }
-        //});
+        $scope.generatePdf = function () {
+            var path = "/default.html#/generatePdf?projectId=" + $routeParams.projectId;
+            window.open(path, '_blank');  
+        };
+      
     }
 
    

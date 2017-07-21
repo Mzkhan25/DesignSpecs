@@ -1,0 +1,27 @@
+﻿
+<div class="container">
+    <p class="h1">Please review pdf given below</p>
+ 
+    <div id="export-this" class="col-md-12">
+            <div class="col-md-4">
+                <img src="css/images/logo.PNG" />
+            </div>
+            
+            <div class="col-md-2">
+
+            </div>
+
+            <div class="col-md-6">
+                <label>PROJECT:</label> {{project.ProjectName}} <br>
+                <label>PROJECT #:</label> {{project.ProjectId}} <br>
+                <label>AREA</label> {{project.ProjectLocation}} <br>
+                <label>ISSUE DATE:</label> <br>
+                <label>STATUS</label> <br>
+            </div>
+            <div class="col-md-12 div-spacing">
+                <img class="responsive-img" ng-src="data:image/JPEG;base64,{{project.DisplayImage}}" height="500" width="700" />
+            </div>
+    </div>
+  
+    <button class="btn btn-primary div-spacing" ng-click="generatePdf()"><i class="fa fa-save"></i> Download PDF</button>
+</div>

@@ -112,6 +112,7 @@
     <Content Include="app\controllers\addProjectController.js" />
     <Content Include="app\controllers\addUserController.js" />
     <Content Include="app\controllers\categoryController.js" />
+    <Content Include="app\controllers\generatePdf.js" />
     <Content Include="app\controllers\loginController.js" />
     <Content Include="app\controllers\projectsController.js" />
     <Content Include="app\controllers\projectDetailController.js" />
@@ -127,6 +128,7 @@
     <Content Include="app\views\addProject.html" />
     <Content Include="app\views\category.html" />
     <Content Include="app\views\addUser.html" />
+    <Content Include="app\views\generatePdf.html" />
     <Content Include="app\views\login.html" />
     <Content Include="app\views\projectDetail.html" />
     <Content Include="app\views\projects.html" />
@@ -140,6 +142,7 @@
     <Content Include="css\images\leaf.svg" />
     <Content Include="css\images\logo-landing.svg" />
     <Content Include="css\images\logo-small.svg" />
+    <Content Include="css\images\logo.PNG" />
     <Content Include="css\images\paper-plane.svg" />
     <Content Include="css\images\parallax1.jpg" />
     <Content Include="css\images\parallax2.jpg" />
