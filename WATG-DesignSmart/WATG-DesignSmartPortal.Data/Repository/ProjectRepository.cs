@@ -58,10 +58,13 @@ namespace WATG_DesignSmartPortal.Data.Repository
 
                 dbItem = Mapper.Map<Project, Project>(project);
 
-                var target = new MemoryStream();
-                image.InputStream.CopyTo(target);
-                dbItem.DisplayImage = target.ToArray();
-
+                if(image != null)
+                {
+                    var target = new MemoryStream();
+                    image.InputStream.CopyTo(target);
+                    dbItem.DisplayImage = target.ToArray();
+                }
+              
                 dbItem.IsDeleted = false;
                 if (isNew)
                 {

@@ -100,7 +100,7 @@
                 </div>
             </div>
 
-            <input class="form-control input-sm" type="file" ngf-select ng-model="project.DisplayImage" name="file"
+            <input class="form-control input-sm" type="file" ngf-select ng-model="project.ProjectImage" name="file"
                    accept="image/*" ngf-max-size="2MB"
                    ngf-model-invalid="errorFile">
 
@@ -116,7 +116,7 @@
                         <input type="submit" ng-click="saveProject()" class="btn btn-primary" value="Update">
                     </div>
 
-                    <button ng-if="!isAddFlow" class="btn btn-primary" ng-click="html2canvas()"><i class="fa fa-save"></i> Save as PDF</button>
+                    <button ng-if="!isAddFlow" class="btn btn-primary" ><i class="fa fa-save"></i> Save as PDF</button>
 
                 </div>
 </form>

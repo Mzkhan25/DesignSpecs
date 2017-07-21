@@ -172,6 +172,7 @@
     <Content Include="public\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="public\js\app.js" />
     <Content Include="public\js\app.min.js" />
+    <Content Include="public\js\html2canvas.js" />
     <Content Include="public\js\vendor.js" />
     <Content Include="public\js\vendor.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -235,9 +236,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Server\Controllers\CategoryController.cs" />
     <Compile Include="Server\Controllers\ProjectController.cs" />
-    <Compile Include="Server\Controllers\ResultController.cs" />
     <Compile Include="Server\Controllers\UserController.cs" />
     <Compile Include="Server\Controllers\UtilController.cs" />
   </ItemGroup>

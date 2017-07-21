@@ -55,7 +55,8 @@
                 ReceivingAndDelivery: "",
                 Other: "",
                 CalcFreight: "",
-                DisplayImage: ""
+                DisplayImage: "",
+                ProjectImage: ""
             };
         } else {
             searchProject($routeParams.projectId);
@@ -71,7 +72,7 @@
             
             //var savedProjectsArr = [];
             if ($scope.project.ProjectId && $scope.project.ProjectName && $scope.project.ProjectLocation) {
-                projectService.save($scope.project, $scope.project.DisplayImage)
+                projectService.save($scope.project, $scope.project.ProjectImage)
                     .then(function (result) {
                         if(result.data){
                             // show success msg
