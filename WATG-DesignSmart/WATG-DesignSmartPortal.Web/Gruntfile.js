@@ -61,9 +61,10 @@
             },
             vendor: {
                 src: [
+                    "bower_components/jquery/dist/jquery.js",
+                    "bower_components/toastr/toastr.js",
                     "bower_components/angular/angular.js",
                     "bower_components/ng-file-upload/ng-file-upload.js",
-                    "bower_components/jquery/dist/jquery.js",
                     "bower_components/bootstrap/dist/js/bootstrap.min.js",
                     "bower_components/angular-route/angular-route.js",
                     "bower_components/angular-bootstrap/ui-bootstrap.min.js",
@@ -72,15 +73,17 @@
                     "bower_components/ng-file-upload/ng-file-upload-shim.js",
                     "bower_components/ng-file-upload/FileAPI.min.js",
                     "bower_components/ng-file-upload/ng-file-upload-all.min.js",
-                    "bower_components/ag-grid/dist/ag-grid.js"
+                    "bower_components/ag-grid/dist/ag-grid.js",
+                    "bower_components/pdfmake/build/pdfmake.js",
                 ],
                 dest: "public/js/vendor.js"
             },
             vendorMin: {
                 src: [
+                    "bower_components/jquery/dist/jquery.min.js",
+                    "bower_components/toastr/toastr.min.js",
                     "bower_components/angular/angular.min.js",
                     "bower_components/ng-file-upload/ng-file-upload.js",
-                    "bower_components/jquery/dist/jquery.min.js",
                     "bower_components/bootstrap/dist/js/bootstrap.min.js",
                     "bower_components/angular-route/angular-route.min.js",
                     "bower_components/angular-bootstrap/ui-bootstrap.min.js",
@@ -89,7 +92,8 @@
                     "bower_components/ng-file-upload/ng-file-upload-shim.min.js",
                     "bower_components/ng-file-upload/FileAPI.min.js",
                     "bower_components/ng-file-upload/ng-file-upload-all.min.js",
-                    "bower_components/ag-grid/dist/ag-grid.min.js"
+                    "bower_components/ag-grid/dist/ag-grid.min.js",
+                    "bower_components/pdfmake/build/pdfmake.min.js",
                 ],
                 dest: "public/js/vendor.min.js"
             }
