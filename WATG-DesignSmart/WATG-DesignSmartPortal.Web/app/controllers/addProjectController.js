@@ -26,24 +26,28 @@
 
         $scope.isDataSaved = false;
         $scope.isAddFlow = true;
-
+       
         if ($routeParams.projectId === "0") {
             $scope.isAddFlow = true;
             $scope.project = {
-                ProjectName: "",
-                ClienttName: "",
-                ProjectId: "",
-                isActive: "",
                 BillingAddress: "",
-                ShipAddressRadio: "",
-                ShippingAddress: "",
-                Terms: "",
-                RequiredDeposit: "",
-                ShipMethod: "",
-                Tax: "",
+                ClientName: "",
+                CurrencyId: "",
+                EstimatedCost: "",
+                EstimatedHours: "",
+                IsActive: "",
+                ProjectId: "",
+                ProjectLocation: "",
+                ProjectName: "",
                 QBTaxCode: "",
+                RequiredDeposit: "",
                 SaleAgent: "",
-                Currency: "",
+                ShipMethod: "",
+                ShipToAddress: "",
+                ShipToPlace: "",
+                TaxPercentage: "",
+                Terms: "",
+                Tax: "",
                 Merchandise: "",
                 Labor: "",
                 Freight: "",
@@ -51,78 +55,58 @@
                 ReceivingAndDelivery: "",
                 Other: "",
                 CalcFreight: "",
-                EstimatedHours: "",
-                EstimatedCost: ""
+                DisplayImage: ""
             };
         } else {
-            $scope.project = searchProject($routeParams.projectId);
+            searchProject($routeParams.projectId);
             $scope.isAddFlow = false;
         }
 
-            $scope.submit = function() {
-                if ($scope.form.file.$valid && $scope.file) {
-                    $scope.upload($scope.file);
-                }
-            };
- 
-            // upload on file select or drop 
-            $scope.upload = function (file) {
-                Upload.upload({
-                    url: 'upload/url',
-                    data: {file: file, 'username': $scope.username}
-                }).then(function (resp) {
-                    console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-                }, function (resp) {
-                    console.log('Error status: ' + resp.status);
-                }, function (evt) {
-                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                    console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
-                });
-            };
-            // for multiple files: 
-            $scope.uploadFiles = function(files) {
-                if (files && files.length) {
-                    for (var i = 0; i < files.length; i++) {
-                        Upload.upload({ data: { file: files[i] } });
-                    }
-                    // or send them all together for HTML5 browsers: 
-                    Upload.upload({ data: { file: files } });
-                }
-            };
+        $scope.uploadPic = function (file) {
+            if (file && $scope.currency)
+                projectService.uploadImage(file, $scope.currency);
+        };
 
         $scope.saveProject = function () {
-
+            
             //var savedProjectsArr = [];
-            if ($scope.project.ProjectId && $scope.project.ProjectName && $scope.project.Location) {
-                var savedProjectsArr = '{"ProjectList":[]}';
-
-                if (localStorage.getItem("savedProjects")) {
-                    savedProjectsArr = localStorage.getItem("savedProjects");
-                }
-
-                var obj = JSON.parse(savedProjectsArr);
-                obj.ProjectList.push($scope.project);
-                savedProjectsArr = JSON.stringify(obj);
-
-                localStorage.setItem("savedProjects", savedProjectsArr);
-
-                $scope.isDataSaved = true;
+            if ($scope.project.ProjectId && $scope.project.ProjectName && $scope.project.ProjectLocation) {
+                projectService.save($scope.project, $scope.project.DisplayImage)
+                    .then(function (result) {
+                        if(result.data){
+                            // show success msg
+                            toastr.success('Project added successfully');
+                        }
+                        else {
+                            // show error msg
+                            toastr.error('Some error occured');
+                        }
+                });
+                //$scope.isDataSaved = true;
             }
             
         };
 
-            function searchProject(projectId) {
-                if (JSON.parse(localStorage.getItem("savedProjects"))) {
-                    var projectList = JSON.parse(localStorage.getItem("savedProjects"));
+        function searchProject(projectId) {
+            projectService.getById(projectId)
+                .then(function (result) {
+                    result.DisplayImage = $rootScope.arrayBufferToBase64(result.DisplayImage);
+                    $scope.project = result;
+                });
+        }
 
-                    for (var i = 0; i < projectList.ProjectList.length; i++) {
-                        if (projectList.ProjectList[i].ProjectId === projectId) {
-                            return projectList.ProjectList[i];
-                        }
-                    }
-                }
-                return null;
-            }
+        //html2canvas(document.getElementById('export-this'), {
+        //    onrendered: function (canvas) {
+        //        var data = canvas.toDataURL();
+        //        var docDefinition = {
+        //            content: [{
+        //                image: data,
+        //                width: 500,
+        //            }]
+        //        };
+        //        pdfMake.createPdf(docDefinition).download("Score_Details.pdf");
+        //    }
+        //});
     }
 
    

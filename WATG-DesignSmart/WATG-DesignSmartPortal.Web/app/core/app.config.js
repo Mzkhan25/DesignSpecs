@@ -87,6 +87,7 @@
             $location.path("/login");
         };
 
+
         $rootScope.appConfig = {
             toastrOptions: {}
         };

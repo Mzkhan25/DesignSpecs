@@ -1,4 +1,5 @@
 ﻿#region
+using AutoMapper;
 using System;
 using System.Data.Entity;
 using System.IO;
@@ -26,19 +27,21 @@ namespace WATG_DesignSmartPortal.Data.Repository
         {
             return _db.Projects.Where(p => p.IsDeleted == false);
         }
-        public bool Save(Project project, string userName)
+        public bool Save(Project project, HttpPostedFileBase image, string userName)
         {
             var result = true;
             try
             {
                 var dbItem = new Project();
                 var isNew = false;
-                var check = _db.Projects.Where(p => p.Id == project.Id && p.IsDeleted == false).ToList();
+                var check = _db.Projects.Where(p => p.ProjectId == project.ProjectId && p.IsDeleted == false).ToList();
                 if (check.Count > 0)
                 {
                     dbItem = check.First();
+                    
                     _db.Entry(dbItem).State = EntityState.Modified;
                     dbItem.ModifiedBy = userName;
+                    
                     dbItem.DateModified = DateTime.UtcNow;
                 }
                 else
@@ -47,9 +50,18 @@ namespace WATG_DesignSmartPortal.Data.Repository
                     dbItem.AddedBy = userName;
                     isNew = true;
                 }
+              
+                Mapper.Initialize(c =>
+                {
+                    c.CreateMap<Project, Project>();
+                });
+
+                dbItem = Mapper.Map<Project, Project>(project);
+
                 var target = new MemoryStream();
-                //image.InputStream.CopyTo(target);
-                
+                image.InputStream.CopyTo(target);
+                dbItem.DisplayImage = target.ToArray();
+
                 dbItem.IsDeleted = false;
                 if (isNew)
                 {
@@ -58,7 +70,7 @@ namespace WATG_DesignSmartPortal.Data.Repository
                 }
                 _db.SaveChanges();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 result = false;
             }

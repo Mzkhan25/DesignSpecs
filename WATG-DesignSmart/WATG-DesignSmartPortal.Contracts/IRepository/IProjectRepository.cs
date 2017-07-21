@@ -9,7 +9,7 @@ namespace WATG_DesignSmartPortal.Contracts.IRepository
     public interface IProjectRepository
     {
         IQueryable<Project> GetAll();
-        bool Save(Project project, string userName);
+        bool Save(Project project, HttpPostedFileBase image, string userName);
         bool Delete(int id, string userName);
     }
 }

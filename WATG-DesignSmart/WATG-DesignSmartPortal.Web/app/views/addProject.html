@@ -14,16 +14,14 @@
     </nav>
 </header>
 
-
-<div class="container">
-    <div ng-if="!isDataSaved"> 
+    <div class="container" id="export-this" ng-if="!isDataSaved"> 
         <h1>Project Details</h1>
         <form>
             <div class="col-sm-12">
                 <div class="col-sm-4">
                     <h3>Core Details</h3>
-
                     <div class="form-group">
+                    
                         <label>*Project Name</label> <input class="form-control" type="text" ng-model="project.ProjectName" required></div>
 
                     <div class="form-group">
@@ -37,17 +35,16 @@
                         <label><input type="radio" ng-model="project.isActive" value="No">No</label>
                     </div>
 
-                    <div class="form-group">  <label>*Project Location</label><input class="form-control" type="text" ng-model="project.Location" required></div>
+                    <div class="form-group">  <label>*Project Location</label><input class="form-control" type="text" ng-model="project.ProjectLocation" required></div>
                 </div>
             
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <h3>Billing Address</h3>
                     <div class="form-group">
                         <label>Update this address</label>
                         <textarea class="form-control" ng-model="project.BillingAddress"></textarea>
                     </div>
-                </div>
-                <div class="col-sm-5">
+
                     <h3>Ship To Address</h3>
                     <div class="form-group">
                         <label>Update this address</label>
@@ -56,8 +53,14 @@
                         <label><input type="radio" ng-model="project.ShipAddressRadio" value="MyCompany">My Company</label>
                         <label><input type="radio" ng-model="project.ShipAddressRadio" value="Other">Other</label><br>
                     </div>
-                    <textarea class="form-control" ng-model="project.ShippingAddress"></textarea>
+                    <textarea class="form-control" ng-model="project.ShipToAddress"></textarea>
+
                 </div>
+                <div class="col-sm-4">
+                        <img ng-if="!isAddFlow" class="responsive-img" ng-src="data:image/JPEG;base64,{{project.DisplayImage}}" height="300" width="300" />
+                </div>
+
+              
 
                 
             </div>
@@ -72,7 +75,7 @@
                     <div class="form-group"><label>Tax </label><input class="form-control" type="text" ng-model="project.Tax"></div>
                     <div class="form-group"><label>QB Tax Code</label> <input class="form-control" type="text" ng-model="project.QBTaxCode"></div>
                     <div class="form-group"><label>Sale Agent</label> <input class="form-control" type="text" ng-model="project.SaleAgent"></div>
-                    <div class="form-group"><label>National Currency</label> <input class="form-control" type="text" ng-model="project.Currency"></div>
+                    <div class="form-group"><label>National Currency</label> <input class="form-control" type="text" ng-model="project.CurrencyId"></div>
                 </div>
 
                 <div class="col-sm-4">
@@ -97,16 +100,9 @@
                 </div>
             </div>
 
-            <input class="form-control input-sm" type="file" ngf-select ng-model="picFile" name="file"
-                   accept="image/*" ngf-max-size="5MB" required
+            <input class="form-control input-sm" type="file" ngf-select ng-model="project.DisplayImage" name="file"
+                   accept="image/*" ngf-max-size="2MB"
                    ngf-model-invalid="errorFile">
-
-            <a class="btn btn-primary btn-xs pull-right"
-               title="add"
-               ng-click="uploadPic(picFile)">
-                <i class="fa fa-plus"></i>&nbsp;Add
-            </a>
-         
 
                 <div class="form-group">
                     <!--<button ng-if="isAddFlow" class="btn btn-primary" ng-click="saveProject()">Save</button>-->
@@ -115,13 +111,15 @@
                         <input type="submit" ng-click="saveProject()" class="btn btn-primary" value="Save">
                     </div>
 
-                    <a ng-if="!isAddFlow" ng-href="#/project" class="btn btn-primary">Back To Projects</a>
+                    <!--<a ng-if="!isAddFlow" ng-href="#/project" class="btn btn-primary">Update</a>-->
+                    <div ng-if="!isAddFlow">
+                        <input type="submit" ng-click="saveProject()" class="btn btn-primary" value="Update">
+                    </div>
+
+                    <button ng-if="!isAddFlow" class="btn btn-primary" ng-click="html2canvas()"><i class="fa fa-save"></i> Save as PDF</button>
+
                 </div>
 </form>
-        
-      
-
-    
     <div ng-if="isDataSaved" class="alert alert-success" role="alert">Project added successfully, click <a ng-href="#/project">here</a> go back to project screen</div>
 </div>
 

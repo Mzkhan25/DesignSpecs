@@ -32,10 +32,10 @@
                         return response.data;
                     });
             },
-            save: function(project) {
+            save: function (project, image) {
                return Upload.upload({
                     url: "Project/Save",
-                    data: { project: project }
+                    data: { project: project, image: image}
                 }).then(function(resp) {
                    // $rootScope.projectUploaded();
                     return resp;
