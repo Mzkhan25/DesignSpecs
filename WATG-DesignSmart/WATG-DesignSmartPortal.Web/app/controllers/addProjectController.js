@@ -24,7 +24,8 @@
             $location.path("/login");
         }
 
-        $scope.isDataSaved = false;
+        $scope.busyGettingData = true;
+
         $scope.isAddFlow = true;
        
         if ($routeParams.projectId === "0") {
@@ -84,6 +85,7 @@
                         }
                 });
                 //$scope.isDataSaved = true;
+
             }
             
         };
@@ -93,10 +95,12 @@
                 .then(function (result) {
                     result.DisplayImage = $rootScope.arrayBufferToBase64(result.DisplayImage);
                     $scope.project = result;
+                    $scope.busyGettingData = false;
                 });
         }
 
         $scope.generatePdf = function () {
+            $location.host();
             var path = "/default.html#/generatePdf?projectId=" + $routeParams.projectId;
             window.open(path, '_blank');  
         };

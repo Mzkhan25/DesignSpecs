@@ -1,4 +1,10 @@
 ﻿
+<div id="loader-wrapper" ng-show="busyGettingData">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+
 <header>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -14,7 +20,7 @@
     </nav>
 </header>
 
-    <div class="container" ng-if="!isDataSaved"> 
+    <div class="container" ng-if="!busyGettingData"> 
         <h1>Project Details</h1>
         <form>
             <div class="col-sm-12">
@@ -108,15 +114,15 @@
                     <!--<button ng-if="isAddFlow" class="btn btn-primary" ng-click="saveProject()">Save</button>-->
 
                     <div ng-if="isAddFlow">
-                        <input type="submit" ng-click="saveProject()" class="btn btn-primary" value="Save">
+                        <input type="submit" ng-click="saveProject()" class="btn btn-primary button-spacing" value="Save">
                     </div>
 
                     <!--<a ng-if="!isAddFlow" ng-href="#/project" class="btn btn-primary">Update</a>-->
-                    <div ng-if="!isAddFlow">
+                    <!--<div ng-if="!isAddFlow">
                         <input type="submit" ng-click="saveProject()" class="btn btn-primary" value="Update">
-                    </div>
+                    </div>-->
 
-                    <button ng-if="!isAddFlow" class="btn btn-primary" ng-click="generatePdf()"><i class="fa fa-save"></i> Generate Pdf</button>
+                    <button ng-if="!isAddFlow" class="btn btn-primary button-spacing" ng-click="generatePdf()"><i class="fa fa-save"></i> Generate Pdf</button>
 
                 </div>
 </form>

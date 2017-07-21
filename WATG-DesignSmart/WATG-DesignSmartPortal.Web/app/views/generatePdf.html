@@ -1,7 +1,8 @@
 ﻿
-<div class="container">
+<div class="container" >
     <p class="h1">Please review pdf given below</p>
- 
+    
+    <div class="pdf-border">
     <div id="export-this" class="col-md-12">
             <div class="col-md-4">
                 <img src="css/images/logo.PNG" />
@@ -22,6 +23,6 @@
                 <img class="responsive-img" ng-src="data:image/JPEG;base64,{{project.DisplayImage}}" height="500" width="700" />
             </div>
     </div>
-  
+  </div>
     <button class="btn btn-primary div-spacing" ng-click="generatePdf()"><i class="fa fa-save"></i> Download PDF</button>
 </div>

@@ -40,6 +40,7 @@
                         $scope.result = false;
                     }
                     $scope.busyGettingData = false;
+
                     //userService.login($scope.userAccountName, $scope.userPassword)
                     //    .then(function (result) {
                     //        $scope.busyGettingData = false;

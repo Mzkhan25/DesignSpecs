@@ -25,7 +25,7 @@
                 $location.path("/login");
             }
 
-            $scope.busyGettingData = false;
+            $scope.busyGettingData = true;
            
             var columnDefs = [
                 { headerName: "", field: "", cellRenderer: viewButton, width: 75 },
@@ -75,7 +75,7 @@
             };
 
             $scope.loadProjects = function() {
-                $scope.busyGettingData = true;
+                //$scope.busyGettingData = true;
                 projectService.getAll()
                     .then(function (result) {
                         rowData = result;
