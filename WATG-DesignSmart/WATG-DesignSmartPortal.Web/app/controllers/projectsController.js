@@ -32,7 +32,7 @@
                 { headerName: "Project ID", field: "ProjectId", width: 125 },
                 { headerName: "Project Name", field: "ProjectName" },
                 { headerName: "Client", field: "ClientName" },
-                { headerName: "Location", field: "Location" },
+                { headerName: "Location", field: "ProjectLocation" },
                 { headerName: "Active", field: "Active", cellRenderer: displayActiveRadio }
             ];
 

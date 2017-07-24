@@ -30,6 +30,7 @@
        
         if ($routeParams.projectId === "0") {
             $scope.isAddFlow = true;
+            $scope.busyGettingData = false;
             $scope.project = {
                 BillingAddress: "",
                 ClientName: "",
@@ -72,10 +73,12 @@
         $scope.saveProject = function () {
             
             //var savedProjectsArr = [];
+            $scope.busyGettingData = true;
             if ($scope.project.ProjectId && $scope.project.ProjectName && $scope.project.ProjectLocation) {
                 projectService.save($scope.project, $scope.project.ProjectImage)
                     .then(function (result) {
-                        if(result.data){
+                        if (result.data) {
+                            $scope.busyGettingData = false;
                             // show success msg
                             toastr.success('Project added successfully');
                         }
