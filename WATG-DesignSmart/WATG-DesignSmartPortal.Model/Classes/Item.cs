@@ -18,9 +18,9 @@ namespace WATG_DesignSmartPortal.Model.Classes
         public int DistributedQty { get; set; }
         public int ProjectId { get; set; }
         public string UnitOfMeasure { get; set; }
-        public string EstimatedMarkup { get; set; } 
-        public string EstimatedMarkupAmount { get; set; }
-
+        public int EstimatedMarkup { get; set; } 
+        public int EstimatedMarkupAmount { get; set; }
+        public int TotalSellPrice { get; set; }
         public string ModelNumber { get; set; }
         public string Finish { get; set; }
         public string Color { get; set; }
@@ -39,5 +39,7 @@ namespace WATG_DesignSmartPortal.Model.Classes
         public bool IsIncludeInMaterialsReport { get; set; }
         public string MaterialRefNotes { get; set; }
 
+        public int ParentItemId { get; set; }
+        public byte[] DisplayImage { get; set; }
     }
 }

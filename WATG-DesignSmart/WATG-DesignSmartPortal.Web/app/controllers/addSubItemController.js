@@ -2,14 +2,14 @@
     "use strict";
     angular
         .module("watgDesignSmart")
-        .controller("addItemController",
+        .controller("addSubItemController",
         [
             "$scope", "$rootScope", "$routeParams", "$location", "$filter", "$timeout", "$window",
             "itemService",
-            addItemController
+            addSubItemController
         ]);
     function
-        addItemController($scope,
+        addSubItemController($scope,
         $rootScope,
         $routeParams,
         $location,
@@ -20,22 +20,29 @@
 
         $scope.item = {};
         $scope.item.Image = "";
-        $scope.projectId = $routeParams.projectId;
-        
-        if ($routeParams.itemId)
-        {
-            itemService.getOne($routeParams.itemId)
-                .then(function (result) {
-                    $scope.projectId = result.ProjectId;
-                    result.DisplayImage = $rootScope.arrayBufferToBase64(result.DisplayImage);
-                    $scope.item = result;
-                });
+
+        $scope.projectId = localStorage.getItem("savedProjectId");
+
+        if (localStorage.getItem("isAddSubItemFlow") === false) {
+            if ($routeParams.itemId) {
+                itemService.getOne($routeParams.itemId)
+                    .then(function (result) {
+                        $scope.projectId = result.ProjectId;
+                        result.DisplayImage = $rootScope.arrayBufferToBase64(result.DisplayImage);
+                        $scope.item = result;
+                    });
+            }
         }
-        
+       
+
         $scope.saveItem = function () {
-            
-            $scope.item.ProjectId = $routeParams.projectId;
+
+            $scope.item.ProjectId = $scope.projectId;
             $scope.item.DisplayImage = $scope.item.Image;
+
+            if (localStorage.getItem("isAddSubItemFlow")) {
+                $scope.item.ParentItemId = $routeParams.itemId;
+            }
             
             if ($scope.item.ItemName && $scope.item.ItemId) {
                 $scope.busyGettingData = true;

@@ -62,6 +62,7 @@
             };
         } else {
             searchProject($routeParams.projectId);
+            $scope.projectId = $routeParams.projectId;
             $scope.isAddFlow = false;
         }
 
@@ -108,9 +109,9 @@
             window.open(path, '_blank');  
         };
 
-        $scope.navigateToAddItem = function () {
-            $location.path("/addItem");
-        };
+        //$scope.navigateToAddItem = function () {
+        //    $location.path("items?projectId=" + $routeParams.projectId);
+        //};
       
     }
 

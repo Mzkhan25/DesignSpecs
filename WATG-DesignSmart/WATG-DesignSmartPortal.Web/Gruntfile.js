@@ -77,6 +77,7 @@
                     "bower_components/pdfmake/build/pdfmake.js",
                     "bower_components/html2canvas/build/html2canvas.js",
                     "bower_components/ngstorage/ngStorage.js",
+                    "bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.js",
                     "node_modules/angular-drop-image/dist/angular-drop-image.js"
                 ],
                 dest: "public/js/vendor.js"
@@ -99,6 +100,7 @@
                     "bower_components/pdfmake/build/pdfmake.min.js",
                     "bower_components/html2canvas/build/html2canvas.min.js",
                     "bower_components/ngstorage/ngStorage.min.js",
+                    "bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js",
                     "node_modules/angular-drop-image/dist/angular-drop-image.js"
                 ],
                 dest: "public/js/vendor.min.js"
@@ -157,7 +159,8 @@
                         "bower_components/toastr/toastr.css",
                         "bower_components/footable/css/footable.core.min.css",
                         "bower_components/watg-angular-autocomplete/dist/css/watg-angular-autocomplete.min.css",
-                        "bower_components/ag-grid/dist/styles/*"
+                        "bower_components/ag-grid/dist/styles/*",
+                        "bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css"
                     ]
                 }
             }

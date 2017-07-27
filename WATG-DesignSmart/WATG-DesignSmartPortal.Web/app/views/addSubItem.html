@@ -1,20 +1,4 @@
-﻿
-<header>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">DesignSmart</a>
-            </div>
-            <ul style="width: 80%;" class="nav navbar-nav">
-                <li class="active"><a href="#">Projects</a></li>
-
-                <li class="pull-right"><a ng-click="signOut()">Sign Out</a></li>
-            </ul>
-        </div>
-    </nav>
-</header>
-
-<div class="container" ng-if="!busyGettingData">
+﻿<div class="container" ng-if="!busyGettingData">
     <h1>Item Details</h1>
     <form>
         <div class="col-sm-12">
@@ -30,30 +14,31 @@
 
                 <div class="form-group"> <label>Area</label> <input class="form-control" type="text" ng-model="item.Area" required></div>
 
-                <div class="form-group">  <label>Classification</label><input class="form-control" type="text" ng-model="item.Classification" ></div>
+                <div class="form-group">  <label>Classification</label><input class="form-control" type="text" ng-model="item.Classification"></div>
 
-                <div class="form-group">  <label>Qty Method</label> <label>Project is active&nbsp;&nbsp;</label>
-                <label><input type="radio" ng-model="item.QtyMethod" value="Distribution">Distribution</label>
-                <label><input type="radio" ng-model="item.QtyMethod" value="Manual">Manual</label>
+                <div class="form-group">
+                    <label>Qty Method</label> <label>Project is active&nbsp;&nbsp;</label>
+                    <label><input type="radio" ng-model="item.QtyMethod" value="Distribution">Distribution</label>
+                    <label><input type="radio" ng-model="item.QtyMethod" value="Manual">Manual</label>
 
-                <div class="form-group">  <label>Estimated Qty</label><input class="form-control" type="number" ng-model="item.EstimatedQty"></div>
-                <div class="form-group">  <label>Distributed Qty</label><input class="form-control" type="number" ng-model="item.DistributedQty"></div>
+                    <div class="form-group">  <label>Estimated Qty</label><input class="form-control" type="number" ng-model="item.EstimatedQty"></div>
+                    <div class="form-group">  <label>Distributed Qty</label><input class="form-control" type="number" ng-model="item.DistributedQty"></div>
 
-                <div class="form-group">  <label>Unit of Measure</label><input class="form-control" type="text" ng-model="item.UnitOfMeasure"></div>
-                <div class="form-group">  <label>Item Type</label><input class="form-control" type="text" ng-model="item.Type"></div>
-                <div class="form-group">  <label>Category</label><input class="form-control" type="text" ng-model="item.Category"></div>
-                <div class="form-group">  <label>Estimated Unit Cost</label><input class="form-control" type="number" ng-model="item.EstimatedUnitCost"></div>
-                
+                    <div class="form-group">  <label>Unit of Measure</label><input class="form-control" type="text" ng-model="item.UnitOfMeasure"></div>
+                    <div class="form-group">  <label>Item Type</label><input class="form-control" type="text" ng-model="item.Type"></div>
+                    <div class="form-group">  <label>Category</label><input class="form-control" type="text" ng-model="item.Category"></div>
+                    <div class="form-group">  <label>Estimated Unit Cost</label><input class="form-control" type="number" ng-model="item.EstimatedUnitCost"></div>
+
                     <div class="form-group">  <label>Estimated Markup</label><input class="form-control" type="number" ng-model="item.EstimatedMarkup"></div>
                     <div class="form-group">  <label>Estimated Markup Amount</label><input class="form-control" type="number" ng-model="item.EstimatedMarkupAmount"></div>
-                <div class="form-group">  <label>Total Sell Price</label><input class="form-control" type="number" ng-model="item.TotalSellPrice"></div>
-                
-            </div>
+                    <div class="form-group">  <label>Total Sell Price</label><input class="form-control" type="number" ng-model="item.TotalSellPrice"></div>
+
                 </div>
+            </div>
 
             <div class="col-sm-6">
                 <h3>User Definable Terms</h3>
-               
+
                 <div class="fileinput fileinput-new" data-provides="fileinput">
                     <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 500px; height: 250px;"></div>
                     <img ng-if="item.Display != null" class="responsive-img" ng-src="data:image/JPEG;base64,{{item.DisplayImage}}" height="500" width="250" />
@@ -66,56 +51,54 @@
                 <!--<div class="content" ng-drop-image ng-model="item.Image">
                     <img height = "500" width="500"  ng-src="{{item.Image}}" />
                 </div>-->
-
                 <!--<input class="form-control input-sm" type="file" ng-change="imageChanged()" ngf-select ng-model="item.Image" name="file"
                        accept="image/*" ngf-max-size="2MB"
                        ngf-model-invalid="errorFile">
 
                 <img class="responsive-img" ng-src="data:image/JPEG;base64,{{item.DisplayImage}}" height="300" width="300" />-->
-
                 <!--<div class="row m-b-1">
                     <div class="col-sm-6 offset-sm-3">
                         <button type="button" class="btn btn-primary btn-block" onclick="document.getElementById('inputFile').click()">Add Image</button>
                         <div class="form-group inputDnD">
                             <label class="sr-only" for="inputFile">File Upload</label>
                             <input style="background-image:{{item.Image}}" type="file" ng-model="item.Image" class="form-control-file text-primary font-weight-bold" id="inputFile" accept="image/*" ng-change="readUrl(this)" data-title="Drag and drop a file">
-                           
+
                             <img height="500" width="500" ng-src="{{iteimgData}}" />
                         </div>
                     </div>
                 </div>-->
 
             </div>
-            
+
         </div>
 
         <div class="col-sm-12">
             <div class="col-sm-6">
                 <h3>Additional Information</h3>
                 <div class="form-group">
-                    <label>Model #</label> <input class="form-control" type="text" ng-model="item.ModelNumber" >
+                    <label>Model #</label> <input class="form-control" type="text" ng-model="item.ModelNumber">
                 </div>
                 <div class="form-group">
-                    <label>Finish</label> <input class="form-control" type="text" ng-model="item.Finish" >
+                    <label>Finish</label> <input class="form-control" type="text" ng-model="item.Finish">
                 </div>
                 <div class="form-group">
-                    <label>Color</label> <input class="form-control" type="text" ng-model="item.Color" >
+                    <label>Color</label> <input class="form-control" type="text" ng-model="item.Color">
                 </div>
                 <div class="form-group">
-                    <label>Dimension</label> <input class="form-control" type="text" ng-model="item.Dimension" >
+                    <label>Dimension</label> <input class="form-control" type="text" ng-model="item.Dimension">
                 </div>
 
                 <div class="form-group">
-                    <label>Pattern</label> <input class="form-control" type="text" ng-model="item.Pattern" >
+                    <label>Pattern</label> <input class="form-control" type="text" ng-model="item.Pattern">
                 </div>
                 <div class="form-group">
-                    <label>Content</label> <input class="form-control" type="text" ng-model="item.Content" >
+                    <label>Content</label> <input class="form-control" type="text" ng-model="item.Content">
                 </div>
                 <div class="form-group">
-                    <label>Width</label> <input class="form-control" type="text" ng-model="item.Width" >
+                    <label>Width</label> <input class="form-control" type="text" ng-model="item.Width">
                 </div>
                 <div class="form-group">
-                    <label>Repeat</label> <input class="form-control" type="text" ng-model="item.Repeat" >
+                    <label>Repeat</label> <input class="form-control" type="text" ng-model="item.Repeat">
                 </div>
 
             </div>
@@ -143,7 +126,7 @@
                 </div>
                 <div class="form-group">
                     <label>Include in Materials Report</label> <input ng-model="item.IsIncludeInMaterialsReport" type="checkbox">
-                    
+
                 </div>
                 <div class="form-group">
                     <label>Material Ref. Notes</label> <input class="form-control" type="text" ng-model="item.MaterialRefNotes">
@@ -151,13 +134,13 @@
 
             </div>
 
-       </div>
+        </div>
 
-            <div class="form-group">
-                <div>
-                    <input type="submit" ng-click="saveItem()" class="btn btn-primary button-spacing" value="Save">
-                </div>
+        <div class="form-group">
+            <div>
+                <input type="submit" ng-click="saveItem()" class="btn btn-primary button-spacing" value="Save">
             </div>
-</form>
+        </div>
+    </form>
     <div ng-if="!isAddFlow" class="alert alert-success" role="alert">Click <a ng-href="#/items?projectId={{projectId}}">here</a> go back to item screen</div>
 </div>

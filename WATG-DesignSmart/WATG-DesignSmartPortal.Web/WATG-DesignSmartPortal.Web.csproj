@@ -111,9 +111,11 @@
     <Content Include="app\app.js" />
     <Content Include="app\controllers\addItemController.js" />
     <Content Include="app\controllers\addProjectController.js" />
+    <Content Include="app\controllers\addSubItemController.js" />
     <Content Include="app\controllers\addUserController.js" />
     <Content Include="app\controllers\categoryController.js" />
     <Content Include="app\controllers\generatePdf.js" />
+    <Content Include="app\controllers\itemController.js" />
     <Content Include="app\controllers\loginController.js" />
     <Content Include="app\controllers\projectsController.js" />
     <Content Include="app\controllers\projectDetailController.js" />
@@ -129,9 +131,11 @@
     <Content Include="app\views\addCategory.html" />
     <Content Include="app\views\addItem.html" />
     <Content Include="app\views\addProject.html" />
+    <Content Include="app\views\addSubItem.html" />
     <Content Include="app\views\category.html" />
     <Content Include="app\views\addUser.html" />
     <Content Include="app\views\generatePdf.html" />
+    <Content Include="app\views\items.html" />
     <Content Include="app\views\login.html" />
     <Content Include="app\views\projectDetail.html" />
     <Content Include="app\views\projects.html" />

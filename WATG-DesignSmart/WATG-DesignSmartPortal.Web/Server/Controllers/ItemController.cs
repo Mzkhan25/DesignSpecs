@@ -26,7 +26,19 @@ namespace WATG_DesignAwardsPortal.Web.Server.Controllers
             return jsonResult;
         }
 
-        public ActionResult GetById(int id)
+        public ActionResult GetAllByProjectId(int projectId)
+        {
+            var result = _item.GetAll().Where(p => p.ProjectId == projectId && p.ParentItemId == 0).ToList();
+            var jsonResult = new JsonResult
+            {
+                Data = result,
+                MaxJsonLength = int.MaxValue,
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
+            return jsonResult;
+        }
+
+        public ActionResult GetOne(int id)
         {
             var result = _item.GetAll().Where(p => p.Id == id).SingleOrDefault();
             var jsonResult = new JsonResult
@@ -37,9 +49,9 @@ namespace WATG_DesignAwardsPortal.Web.Server.Controllers
             };
             return jsonResult;
         }
-        public ActionResult Save(Item item)
+        public ActionResult Save(Item item, HttpPostedFileBase image)
         {
-            var result = _item.Save(item, "");
+            var result = _item.Save(item, image, "");
             return Json(result, JsonRequestBehavior.AllowGet);
         }
     }

@@ -59,6 +59,16 @@
                 templateUrl: "app/Views/addItem.html",
                 controller: "addItemController"
             })
+            .when("/addSubItem/:itemId?",
+            {
+                templateUrl: "app/Views/addSubItem.html",
+                controller: "addSubItemController"
+            })
+            .when("/items/:projectId?",
+            {
+                templateUrl: "app/Views/items.html",
+                controller: "itemController"
+            })
             .otherwise({ redirectTo: "/login" });
     }
     function appRun($rootScope,

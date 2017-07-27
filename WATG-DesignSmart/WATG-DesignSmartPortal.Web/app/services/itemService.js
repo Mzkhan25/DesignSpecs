@@ -8,7 +8,16 @@
             getAll: function () {
                 return $http({
                     method: "GET",
-                    url: "Category/GetAll"
+                    url: "Item/GetAll"
+                })
+                    .then(function (response) {
+                        return response.data;
+                    });
+            },
+            getAllByProjectId: function (id) {
+                return $http({
+                    method: "GET",
+                    url: "Item/GetAllByProjectId?projectId=" + id
                 })
                     .then(function (response) {
                         return response.data;
@@ -17,17 +26,17 @@
             getOne: function (id) {
                 return $http({
                     method: "GET",
-                    url: "Category/GetOne?id=" + id
+                    url: "Item/GetOne?id=" + id
                 })
                     .then(function (response) {
                         return response.data;
                     });
             },
-            save: function (item) {
+            save: function (item, image) {
                 return Upload.upload({
                     url: "Item/Save",
-                    data: { item: item}
-                })
+                    data: { item: item, image: image }
+                });
             },
             delete: function (id) {
                 return $http({
@@ -35,7 +44,7 @@
                     data: {
                         id: id
                     },
-                    url: "Category/Delete?id=" + id
+                    url: "Item/Delete?id=" + id
                 })
                     .then(function (response) {
                         return response.data;
