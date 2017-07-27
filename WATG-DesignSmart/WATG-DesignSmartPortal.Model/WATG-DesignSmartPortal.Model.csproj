@@ -69,6 +69,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Item.cs" />
     <Compile Include="Classes\Project.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Common\ApplicationRoles.cs" />

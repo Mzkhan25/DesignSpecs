@@ -75,7 +75,9 @@
                     "bower_components/ng-file-upload/ng-file-upload-all.min.js",
                     "bower_components/ag-grid/dist/ag-grid.js",
                     "bower_components/pdfmake/build/pdfmake.js",
-                    "bower_components/html2canvas/build/html2canvas.js"
+                    "bower_components/html2canvas/build/html2canvas.js",
+                    "bower_components/ngstorage/ngStorage.js",
+                    "node_modules/angular-drop-image/dist/angular-drop-image.js"
                 ],
                 dest: "public/js/vendor.js"
             },
@@ -95,7 +97,9 @@
                     "bower_components/ng-file-upload/ng-file-upload-all.min.js",
                     "bower_components/ag-grid/dist/ag-grid.min.js",
                     "bower_components/pdfmake/build/pdfmake.min.js",
-                    "bower_components/html2canvas/build/html2canvas.min.js"
+                    "bower_components/html2canvas/build/html2canvas.min.js",
+                    "bower_components/ngstorage/ngStorage.min.js",
+                    "node_modules/angular-drop-image/dist/angular-drop-image.js"
                 ],
                 dest: "public/js/vendor.min.js"
             }

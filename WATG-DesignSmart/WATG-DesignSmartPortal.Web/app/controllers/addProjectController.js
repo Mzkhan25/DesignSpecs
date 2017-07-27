@@ -107,6 +107,10 @@
             var path = "/default.html#/generatePdf?projectId=" + $routeParams.projectId;
             window.open(path, '_blank');  
         };
+
+        $scope.navigateToAddItem = function () {
+            $location.path("/addItem");
+        };
       
     }
 

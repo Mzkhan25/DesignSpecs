@@ -14,5 +14,6 @@ namespace WATG_DesignSmartPortal.Data
         }
         public DbSet<Project> Projects { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Item> Items { get; set; }
     }
 }

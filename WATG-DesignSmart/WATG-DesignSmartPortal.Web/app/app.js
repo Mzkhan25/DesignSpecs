@@ -13,7 +13,8 @@
         "ngFileUpload",
         "angular.filter",
         "agGrid",
-        "ngFileUpload"
+        "ngFileUpload",
+        "ngDropImage"
     ];
     var app = angular.module("watgDesignSmart", modules);
 }());

@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\controllers\addItemController.js" />
     <Content Include="app\controllers\addProjectController.js" />
     <Content Include="app\controllers\addUserController.js" />
     <Content Include="app\controllers\categoryController.js" />
@@ -119,12 +120,14 @@
     <Content Include="app\controllers\resultController.js" />
     <Content Include="app\core\app.const.js" />
     <Content Include="app\services\categoryService.js" />
+    <Content Include="app\services\itemService.js" />
     <Content Include="app\services\userService.js" />
     <Content Include="app\services\projectService.js" />
     <Content Include="app\services\resultService.js" />
     <Content Include="app\controllers\addCategoryController.js" />
     <Content Include="app\services\appService.js" />
     <Content Include="app\views\addCategory.html" />
+    <Content Include="app\views\addItem.html" />
     <Content Include="app\views\addProject.html" />
     <Content Include="app\views\category.html" />
     <Content Include="app\views\addUser.html" />
@@ -175,7 +178,6 @@
     <Content Include="public\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="public\js\app.js" />
     <Content Include="public\js\app.min.js" />
-    <Content Include="public\js\html2canvas.js" />
     <Content Include="public\js\vendor.js" />
     <Content Include="public\js\vendor.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -239,6 +241,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Server\Controllers\ItemController.cs" />
     <Compile Include="Server\Controllers\ProjectController.cs" />
     <Compile Include="Server\Controllers\UserController.cs" />
     <Compile Include="Server\Controllers\UtilController.cs" />

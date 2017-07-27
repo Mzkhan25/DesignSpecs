@@ -53,7 +53,12 @@
                 {
                     templateUrl: "app/Views/generatePdf.html",
                     controller: "generatePdfController"
-                })
+            })
+            .when("/addItem/:projectId?",
+            {
+                templateUrl: "app/Views/addItem.html",
+                controller: "addItemController"
+            })
             .otherwise({ redirectTo: "/login" });
     }
     function appRun($rootScope,

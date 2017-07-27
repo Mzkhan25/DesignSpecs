@@ -1,6 +1,7 @@
 {
   "author": "DevOps",
   "dependencies": {
+    "angular-drop-image": "^1.0.8",
     "grunt-template": "^1.0.0"
   },
   "description": "",

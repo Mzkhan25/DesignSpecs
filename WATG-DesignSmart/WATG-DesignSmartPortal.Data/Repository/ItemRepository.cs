@@ -12,36 +12,37 @@ using WATG_DesignSmartPortal.Model.Classes;
 
 namespace WATG_DesignSmartPortal.Data.Repository
 {
-    public class ProjectRepository : IProjectRepository
+    public class ItemRepository : IItemRepository
     {
         private readonly IDesignSmartContext _db;
-        public ProjectRepository()
+        public ItemRepository()
         {
             _db = new DesignSmartContext();
         }
-        public ProjectRepository(DesignSmartContext db)
+        public ItemRepository(DesignSmartContext db)
         {
             _db = db;
         }
-        public IQueryable<Project> GetAll()
+
+        public IQueryable<Item> GetAll()
         {
-            return _db.Projects.Where(p => p.IsDeleted == false);
+            return _db.Items.Where(p => p.IsDeleted == false);
         }
-        public bool Save(Project project, HttpPostedFileBase image, string userName)
+        public bool Save(Item item, string userName)
         {
             var result = true;
             try
             {
-                var dbItem = new Project();
+                var dbItem = new Item();
                 var isNew = false;
-                var check = _db.Projects.Where(p => p.ProjectId == project.ProjectId && p.IsDeleted == false).ToList();
+                var check = _db.Items.Where(p => p.ProjectId == item.Id && p.IsDeleted == false).ToList();
                 if (check.Count > 0)
                 {
                     dbItem = check.First();
-                    
+
                     _db.Entry(dbItem).State = EntityState.Modified;
                     dbItem.ModifiedBy = userName;
-                    
+
                     dbItem.DateModified = DateTime.UtcNow;
                 }
                 else
@@ -56,21 +57,21 @@ namespace WATG_DesignSmartPortal.Data.Repository
                     c.CreateMap<Project, Project>();
                 });
 
-                dbItem = Mapper.Map<Project, Project>(project);
+                dbItem = Mapper.Map<Item, Item>(item);
 
-                if (image != null)
-                {
-                    var target = new MemoryStream();
-                    image.InputStream.CopyTo(target);
-                    dbItem.DisplayImage = target.ToArray();
-                }
-              
+                //if (image != null)
+                //{
+                //    var target = new MemoryStream();
+                //    image.InputStream.CopyTo(target);
+                //    dbItem.DisplayImage = target.ToArray();
+                //}
+
                 dbItem.IsDeleted = false;
                 if (isNew)
                 {
                     _db.Entry(dbItem).State = EntityState.Added;
                     dbItem.DateAdded = DateTime.UtcNow;
-                    _db.Projects.Add(dbItem);
+                    _db.Items.Add(dbItem);
                 }
                 _db.SaveChanges();
             }

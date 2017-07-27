@@ -10,6 +10,8 @@ namespace WATG_DesignSmartPortal.Contracts
     {
         DbSet<Project> Projects { get; set; }
         DbSet<User> Users { get; set; }
+        DbSet<Item> Items { get; set; }
+
         int SaveChanges();
         DbEntityEntry Entry(object o);
         void Dispose();

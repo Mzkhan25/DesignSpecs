@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IDesignSmartContext.cs" />
+    <Compile Include="IRepository\IItemRepository.cs" />
     <Compile Include="IRepository\IProjectRepository.cs" />
     <Compile Include="IRepository\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

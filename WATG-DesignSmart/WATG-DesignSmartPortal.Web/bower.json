@@ -17,7 +17,8 @@
     "ag-grid": "^10.1.0",
     "toastr": "*",
     "pdfmake": "^0.1.31",
-    "html2canvas": "^0.4.1"
+    "html2canvas": "^0.4.1",
+    "ngstorage": "^0.3.11"
   },
   "ignore": [
     "**/.*",
