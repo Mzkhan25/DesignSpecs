@@ -34,7 +34,7 @@ namespace WATG_DesignSmartPortal.Data.Repository
             {
                 var dbItem = new Project();
                 var isNew = false;
-                var check = _db.Projects.Where(p => p.ProjectId == project.ProjectId && p.IsDeleted == false).ToList();
+                var check = _db.Projects.Where(p => p.Id == project.Id && p.IsDeleted == false).ToList();
                 if (check.Count > 0)
                 {
                     dbItem = check.First();

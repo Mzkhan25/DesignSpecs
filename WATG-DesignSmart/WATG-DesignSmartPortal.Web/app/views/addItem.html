@@ -53,15 +53,24 @@
 
             <div class="col-sm-6">
                 <h3>User Definable Terms</h3>
+
+                <div class="col-sm-4">
+                    <img ng-if="!isAddFlow" class="responsive-img" ng-src="data:image/JPEG;base64,{{item.DisplayImage}}" height="300" width="300" />
+                </div>
+
                
-                <div class="fileinput fileinput-new" data-provides="fileinput">
+                <input class="form-control input-sm" type="file" ngf-select ng-model="item.Image" name="file"
+                       accept="image/*" ngf-max-size="2MB"
+                       ngf-model-invalid="errorFile">
+
+                <!--<div class="fileinput fileinput-new" data-provides="fileinput">
                     <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 500px; height: 250px;"></div>
                     <img ng-if="item.Display != null" class="responsive-img" ng-src="data:image/JPEG;base64,{{item.DisplayImage}}" height="500" width="250" />
                     <div>
                         <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" ng-model="item.Image" /></span>
                         <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                     </div>
-                </div>
+                </div>-->
 
                 <!--<div class="content" ng-drop-image ng-model="item.Image">
                     <img height = "500" width="500"  ng-src="{{item.Image}}" />

@@ -37,8 +37,8 @@
                 
                     <div class="form-group">
                         <label>Project is active&nbsp;&nbsp;</label>
-                        <label><input type="radio" ng-model="project.isActive" value="Yes">Yes</label>
-                        <label><input type="radio" ng-model="project.isActive" value="No">No</label>
+                        <label><input type="radio" ng-model="project.IsActive" value="Yes">Yes</label>
+                        <label><input type="radio" ng-model="project.IsActive" value="No">No</label>
                     </div>
 
                     <div class="form-group">  <label>*Project Location</label><input class="form-control" type="text" ng-model="project.ProjectLocation" required></div>
@@ -53,7 +53,7 @@
 
                     <h3>Ship To Address</h3>
                     <div class="form-group">
-                        <label>Update this address</label>
+                        <label>Update this address</label><br>
 
                         <label><input type="radio" ng-model="project.ShipAddressRadio" value="Client">Client</label>
                         <label><input type="radio" ng-model="project.ShipAddressRadio" value="MyCompany">My Company</label>
@@ -127,5 +127,5 @@
                     <a ng-if="!isAddFlow" class="btn btn-primary button-spacing" ng-href="#/items?projectId={{projectId}}"><i class="fa fa-save"></i> Add/View Item</a>
                 </div>
 </form>
-    <div ng-if="!isAddFlow" class="alert alert-success" role="alert">Project added successfully, click <a ng-href="#/project">here</a> go back to project screen</div>
+    <div class="alert alert-success" role="alert">Click <a ng-href="#/project">here</a> go back to project screen</div>
 </div>

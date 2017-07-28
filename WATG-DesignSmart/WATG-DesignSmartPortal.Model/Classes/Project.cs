@@ -8,12 +8,13 @@ namespace WATG_DesignSmartPortal.Model.Classes
     {
         public  string ProjectId { get; set; }
         public string ProjectName { get; set; }                
-        public bool IsActive { get; set; }
+        public string IsActive { get; set; }
         public string ProjectLocation { get; set; }
         public string ClientName { get; set; }
         public string BillingAddress { get; set; }
         public string ShipToAddress { get; set; }
         public string ShipToPlace { get; set; }
+        public string ShipAddressRadio { get; set; }
         public string Terms { get; set; }
         public string RequiredDeposit { get; set; }
         public string ShipMethod { get; set; }

@@ -74,8 +74,8 @@
         $scope.saveProject = function () {
             
             //var savedProjectsArr = [];
-            $scope.busyGettingData = true;
             if ($scope.project.ProjectId && $scope.project.ProjectName && $scope.project.ProjectLocation) {
+                $scope.busyGettingData = true;
                 projectService.save($scope.project, $scope.project.ProjectImage)
                     .then(function (result) {
                         if (result.data) {
