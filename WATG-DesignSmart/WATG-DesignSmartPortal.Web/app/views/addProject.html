@@ -122,7 +122,7 @@
                         <input type="submit" ng-click="saveProject()" class="btn btn-primary" value="Update">
                     </div>-->
 
-                    <button ng-if="!isAddFlow" class="btn btn-primary button-spacing" ng-click="generatePdf()"><i class="fa fa-save"></i> Generate Pdf</button>
+                    <a ng-if="!isAddFlow" class="btn btn-primary button-spacing" ng-href="/api/ExportData.pdf?projectId={{projectId}}"><i class="fa fa-save"></i> Generate Pdf</a>
 
                     <a ng-if="!isAddFlow" class="btn btn-primary button-spacing" ng-href="#/items?projectId={{projectId}}"><i class="fa fa-save"></i> Add/View Item</a>
                 </div>
