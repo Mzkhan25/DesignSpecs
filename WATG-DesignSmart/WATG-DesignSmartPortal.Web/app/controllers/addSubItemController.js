@@ -22,11 +22,14 @@
         $scope.item.Image = "";
 
         $scope.projectId = localStorage.getItem("savedProjectId");
+        $scope.busyGettingData = false;
 
         if (localStorage.getItem("isAddSubItemFlow") === false) {
+            $scope.busyGettingData = true;
             if ($routeParams.itemId) {
                 itemService.getOne($routeParams.itemId)
                     .then(function (result) {
+                        $scope.busyGettingData = false;
                         $scope.projectId = result.ProjectId;
                         result.DisplayImage = $rootScope.arrayBufferToBase64(result.DisplayImage);
                         $scope.item = result;

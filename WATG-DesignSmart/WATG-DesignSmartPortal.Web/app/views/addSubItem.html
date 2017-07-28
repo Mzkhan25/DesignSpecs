@@ -1,4 +1,25 @@
-﻿<div class="container" ng-if="!busyGettingData">
+﻿<div id="loader-wrapper" ng-show="busyGettingData">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+
+<header ng-if="!busyGettingData">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">DesignSmart</a>
+            </div>
+            <ul style="width: 80%;" class="nav navbar-nav">
+                <li class="active"><a href="#">Projects</a></li>
+
+                <li class="pull-right"><a ng-click="signOut()">Sign Out</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="container" ng-if="!busyGettingData">
     <h1>Item Details</h1>
     <form>
         <div class="col-sm-12">

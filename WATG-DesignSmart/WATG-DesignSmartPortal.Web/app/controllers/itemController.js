@@ -19,6 +19,7 @@
         itemService) {
 
         $scope.projectId = $routeParams.projectId;
+        $scope.busyGettingData = true;
 
         var columnDefs = [
             { headerName: "", field: "", cellRenderer: viewButton, width: 100 },
@@ -100,6 +101,7 @@
             itemService.getAllByProjectId(projectId)
                 .then(function (result) {
                     rowData = result;
+                    $scope.busyGettingData = false;
                     //rowData = [
                     //    {
                     //        group: 'Group A',

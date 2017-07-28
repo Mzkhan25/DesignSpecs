@@ -1,4 +1,11 @@
-﻿<header>
+﻿
+<div id="loader-wrapper" ng-show="busyGettingData">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+
+<header ng-show="!busyGettingData">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -13,7 +20,7 @@
     </nav>
 </header>
 
-<div class="container">
+<div ng-show="!busyGettingData" class="container">
 <h1>Project Item Details</h1>
 
 <a ng-href="#/addItem?projectId={{projectId}}"> <i class="fa fa-plus" aria-hidden="true"> Add New Item </i></a>

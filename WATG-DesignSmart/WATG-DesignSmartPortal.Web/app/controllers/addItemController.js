@@ -21,11 +21,14 @@
         $scope.item = {};
         $scope.item.Image = "";
         $scope.projectId = $routeParams.projectId;
+        $scope.busyGettingData = false;
         
         if ($routeParams.itemId)
         {
+            $scope.busyGettingData = true;
             itemService.getOne($routeParams.itemId)
                 .then(function (result) {
+                    $scope.busyGettingData = false;
                     $scope.projectId = result.ProjectId;
                     result.DisplayImage = $rootScope.arrayBufferToBase64(result.DisplayImage);
                     $scope.item = result;
