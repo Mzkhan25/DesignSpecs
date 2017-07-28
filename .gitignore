@@ -286,3 +286,5 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+WATG-DesignSmart/WATG-DesignSmartPortal.Web/app/controllers/addProjectController.js
+/WATG-DesignSmart/WATG-DesignSmartPortal.Web/bower_components
