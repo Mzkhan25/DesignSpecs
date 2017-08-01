@@ -55,6 +55,7 @@
                             $scope.busyGettingData = false;
                             // show success msg
                             toastr.success('Sub Item added successfully');
+                            $scope.item = [];
                         }
                         else {
                             // show error msg

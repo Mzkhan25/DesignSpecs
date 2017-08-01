@@ -37,19 +37,18 @@
             ];
 
             function viewButton(params) {
-                console.log(params);
                 return "<a class='btn btn-info' ng-href='#/addUpdateProject?projectId=" + params.data.Id + "'>View</a>";
             }
             
             function displayActiveRadio(params) {
                 // need to refactor this bad code
-                if (params.data.isActive === "Yes") {
+                if (params.data.IsActive === "Yes") {
                     return "<div class='form-group'>" +
                         "<label><input type='radio' disabled checked value='Yes'>Yes</label>" +
                         "<label><input type='radio' disabled value='No'>No</label>" +
                         "</div >";
                 }
-                else if (params.data.isActive === "No") {
+                else if (params.data.IsActive === "No") {
                     return "<div class='form-group'>" +
                         "<label><input type='radio' disabled value='Yes'>Yes</label>" +
                         "<label><input type='radio' disabled checked value='No'>No</label>" +

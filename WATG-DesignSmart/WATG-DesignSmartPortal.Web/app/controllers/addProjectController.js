@@ -82,6 +82,7 @@
                             $scope.busyGettingData = false;
                             // show success msg
                             toastr.success('Project added successfully');
+                            $scope.project = [];
                         }
                         else {
                             // show error msg

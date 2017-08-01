@@ -19,9 +19,8 @@ namespace WATG_DesignSmartPortal.Web.Server.Controllers
         }
         public ActionResult Login(string accountName ,string password)
         {
-            //var result = _user.GetAll().ToList().FirstOrDefault(p => p.Password == password);
-            bool result = string.Equals(accountName,"atariq") && string.Equals(password,"abc");
-
+            var result = _user.GetAll().ToList().FirstOrDefault(p => p.AccountName == accountName && p.Password == password && p.IsDeleted == false);
+           
             return Json(result, JsonRequestBehavior.AllowGet);
         }
         public ActionResult Save(User user)
