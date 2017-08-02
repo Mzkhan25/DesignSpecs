@@ -20,7 +20,7 @@
 
         $scope.item = {};
         $scope.item.Image = "";
-
+        
         $scope.projectId = localStorage.getItem("savedProjectId");
         $scope.busyGettingData = false;
 
@@ -39,7 +39,7 @@
        
 
         $scope.saveItem = function () {
-
+            
             $scope.item.ProjectId = $scope.projectId;
             $scope.item.DisplayImage = $scope.item.Image;
 

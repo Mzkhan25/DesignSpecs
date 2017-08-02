@@ -19,19 +19,22 @@
         itemService) {
 
         $scope.projectId = $routeParams.projectId;
+
+        localStorage.setItem("savedProjectId", $routeParams.projectId);
+
         $scope.busyGettingData = true;
 
         var columnDefs = [
             { headerName: "", field: "", cellRenderer: viewButton, width: 100 },
             { headerName: "", field: "", cellRenderer: viewSubItemButton, width: 190 },
-            { headerName: "Item #", field: "ItemId"},
+            { headerName: "Item #", field: "ItemId", cellRenderer: 'group', showRowGroup: true},
             { headerName: "Item Name", field: "ItemName", width: 125 },
             { headerName: "Estimated Qty", field: "EstimatedQty" },
             { headerName: "Area", field: "Area" },
             { headerName: "Type", field: "Type" },
             { headerName: "Category", field: "Category" },
             { headerName: "EstimatedUnitCost", field: "EstimatedUnitCost" },
-            { headerName: "InvoiceUnitCost", field: "InvoiceUnitCost" },
+            { headerName: "InvoiceUnitCost", field: "InvoiceUnitCost" }
         ];
 
         //var columnDefs = [
@@ -41,19 +44,46 @@
         //    { headerName: "Country", field: "country" }
         //];
 
+        //function getNodeChildDetails(rowItem) {
+        //    if (rowItem.participants) {
+        //        return {
+        //            group: true,
+        //            // open C be default
+        //            expanded: false,
+        //            children: rowItem.participants,
+        //            //children: selectChildRows(rowItem),
+        //            // the key is used by the default group cellRenderer
+        //            field: rowItem.ItemName,
+        //            key: rowItem.group
+        //        };
+        //    } else {
+        //        return null;
+        //    }
+        //}
+
         function getNodeChildDetails(rowItem) {
-            if (rowItem.participants) {
+            if (rowItem.ChildItems) {
                 return {
                     group: true,
                     // open C be default
-                    expanded: rowItem.group === 'Group C',
-                    // provide ag-Grid with the children of this group
-                    children: rowItem.participants,
+                    expanded: false,
+                    children: rowItem.ChildItems,
                     // the key is used by the default group cellRenderer
-                    key: rowItem.group
+                    field: rowItem.ItemName,
+                    key: rowItem.ItemId
                 };
             } else {
                 return null;
+            }
+        }
+
+        function selectChildRows(rowItem) {
+            if (rowItem.ParentItemId !== 0) {
+                delete rowItem.ChildItems;
+                return [];
+            }
+            else {
+                return rowItem.ChildItems;
             }
         }
 
@@ -63,7 +93,7 @@
 
         // setup the grid after the page has finished loading
         document.addEventListener('DOMContentLoaded', function () {
-            var gridDiv = document.querySelector('#myGrid');
+            var gridDiv = document.querySelector('#itemGrid');
             new agGrid.Grid(gridDiv, gridOptions);
         });
 
@@ -74,9 +104,13 @@
         }
 
         function viewSubItemButton(params) {
-            console.log(params);
+            
             localStorage.setItem("isAddSubItemFlow", true);
-            localStorage.setItem("savedProjectId", $scope.projectId);
+           // localStorage.setItem("savedProjectId", $scope.projectId);
+            if (params.data.ParentItemId)
+            {
+                return "";
+            }
             return "<a class='btn btn-info' ng-href='#/addSubItem?itemId=" + params.data.Id + "'>Add Sub Item</a>";
         }
         
@@ -100,15 +134,20 @@
             //$scope.busyGettingData = true;
             itemService.getAllByProjectId(projectId)
                 .then(function (result) {
+                    debugger;
                     rowData = result;
-                    $scope.busyGettingData = false;
+                   
                     //rowData = [
                     //    {
                     //        group: 'Group A',
                     //        participants: [
                     //            { group: 'A.1', athlete: 'Michael Phelps', year: '2008', country: 'United States' },
                     //            { group: 'A.2', athlete: 'Michael Phelps', year: '2008', country: 'United States' },
-                    //            { group: 'A.3', athlete: 'Michael Phelps', year: '2008', country: 'United States' }
+                    //            {
+                    //                group: 'A.3', athlete: 'Michael Phelps', year: '2008', country: 'United States',
+                    //                participants: [
+                    //                    { group: 'A.1', athlete: 'Michael Phelps', year: '2008', country: 'United States' }]
+                    //            }
                     //        ]
                     //    },
                     //    {

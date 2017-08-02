@@ -1,10 +1,15 @@
 ﻿
+using System.Collections.Generic;
 using WATG_DesignSmartPortal.Model.Common;
 
 namespace WATG_DesignSmartPortal.Model.Classes
 {
     public class Item : BaseModel
     {
+        public Item()
+        {
+            ChildItems = new List<Item>();
+        }
         public string ItemId { get; set; }
         public string ItemName { get; set; }
         public int EstimatedQty { get; set; }
@@ -41,5 +46,7 @@ namespace WATG_DesignSmartPortal.Model.Classes
 
         public int ParentItemId { get; set; }
         public byte[] DisplayImage { get; set; }
+
+        public virtual ICollection<Item> ChildItems { get; set; }
     }
 }
